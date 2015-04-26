@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.print.DocFlavor.INPUT_STREAM;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -33,6 +34,7 @@ public class UIFrame extends JFrame{
 	public UIFrame(){
 		this.setTitle("UIExtra");
 		this.setSize(400, 600);
+		this.setResizable(true);
 		this.setLocation(50, 30);
 		edit_group = new ArrayList<JTextField>();
 		
@@ -56,6 +58,10 @@ public class UIFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				if (number == 30) {
+					JOptionPane.showMessageDialog(panel, "已经满了！", "提示", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				number++;
 				JTextField input = new JTextField();
 				input.setName(number+"");
@@ -105,6 +111,8 @@ public class UIFrame extends JFrame{
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
+			off_Left = e.getX();
+			off_Top = e.getY();
 		}
 		
 		@Override
