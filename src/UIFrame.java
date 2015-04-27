@@ -28,7 +28,9 @@ public class UIFrame extends JFrame{
 	private JButton addbtn;
 	private JButton delbtn;
 	private int number = 0;
+	// 编辑框数组
 	private ArrayList<JTextField> edit_group;
+	// 焦点跳转二维数组
 	private int[][] focus_jump = new int[30][4];
 	
 	public UIFrame(){
@@ -182,7 +184,7 @@ public class UIFrame extends JFrame{
 	// 更新下一个跳转的对象
 	public void updateNextObject(){
 		
-		// initial the focus_jump
+		// 初始化 focus_jump
 		for (int i = 0; i < 30; i++) {
 			for (int j = 0; j < 4; j++) {
 				focus_jump[i][j] = -1;
@@ -226,7 +228,7 @@ public class UIFrame extends JFrame{
 		
 	}
 	
-	// 获取位置
+	// 获取n相对于o的位置，返回值只有上， 下， 左， 右四个方向
 	public int getPosition(int offx, int offy){
 		int absx = Math.abs(offx);
 		int absy = Math.abs(offy);
